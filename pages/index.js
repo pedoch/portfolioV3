@@ -1,13 +1,15 @@
 import { GithubOutlined, LinkedinFilled, LinkOutlined, TwitterOutlined } from '@ant-design/icons'
 import axios from 'axios'
+import dayJS from 'dayjs'
 import Head from 'next/head'
 
 const Home = ({ latestPosts }) => {
 
   return (
-    <div className="bg-blue-900 w-screen h-screen p-4 flex justify-center text-white pt-10 overflow-x-hidden">
+    <div className="bg-blue-900 w-screen h-screen p-2 flex justify-center text-white pt-10 overflow-x-hidden">
       <Head>
         <title>My Name is Pedro</title>
+        <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
         <meta name="description" content="My name is Pedro, I'm a web developer and this is my portfolio." />
         <meta name="keywords" content="Pedro, Ogheneochuko, Hephzibah, Portfolio, React, Developer, StriTech, stritech, software, developement, web, app, design, website, mobile, e-commerce, maitenace consultation, SEO, search engine optimization, SAAS, Software, As, A, Service" />
       </Head>
@@ -24,7 +26,7 @@ const Home = ({ latestPosts }) => {
             <li className="mb-3"><a href="#blog">04  -  BLOG</a></li>
           </ul>
           <span className="flex items-center mb-20 phone:mb-10 phone:flex-wrap">
-            <img src="../static/images/bitmoji-3.png" className="w-10 h-10 rounded-full" />
+            <img src="/images/bitmoji-3.png" className="w-10 h-10 rounded-full" />
             <div className="flex phone:mt-5">
               <a href="https://twitter.com/deltanboi" target="_blank" rel="noopener" className="ml-5 flex items-center"><TwitterOutlined className="mr-1" /> Twitter <LinkOutlined className="ml-1" /></a>
               <a href="https://github.com/pedoch" target="_blank" rel="noopener" className="ml-5 flex items-center"><GithubOutlined className="mr-1" />GitHub<LinkOutlined className="ml-1" /></a>
@@ -57,19 +59,21 @@ const Home = ({ latestPosts }) => {
             tools: "NextJS"
           }].map((project, index) => {
             return (
-              <a href={project.link} target="_blank" rel="noopener" key={project.title + index} className="mb-5 bg-blue-800 p-3 flex flex-col justify-between min-h-40 hover:shadow-xl hover:text-white">
+              <div key={project.title + index} className="mb-5 bg-blue-800 p-3 flex flex-col justify-between min-h-40 hover:shadow-xl hover:text-white">
                 <div>
                   <p className="">{project.tools}</p>
-                  <p className="text-2xl mb-3 font-medium">{project.title}</p>
+                  <a href={project.link} target="_blank" rel="noopener" className="underline">
+                    <p className="text-2xl mb-3 font-medium">{project.title}</p>
+                  </a>
                 </div>
                 <p className="mb-2">{project.description}</p>
-                <div>GitHub:{project.github.map((link, index) => {
+                <span>GitHub:{project.github.map((link, index) => {
                   return (
                     <a key={link.title + index} href={link.link} target="blank" rel="noopener" className="ml-2">{link.title}</a>
                   )
-                })}</div>
+                })}</span>
                 <p>{project.public}</p>
-              </a>
+              </div>
             )
           })}
           <p className="mb-5 font-bold mt-16" id="work_history">WORK HISTORY</p>
@@ -85,11 +89,11 @@ const Home = ({ latestPosts }) => {
             timePeriod: "Jun, 2019 - Aug, 2019",
           }].map((work, index) => {
             return (
-              <div key={work.title + index} className="mb-5 bg-blue-700 p-3 flex flex-col justify-between min-h-40">
-                <di>
+              <div key={work.title + index} className="mb-5 bg-blue-700 p-3 flex flex-col justify-between min-h-40 hover:shadow-xl">
+                <div>
                   <p className="text-lg">{work.company}</p>
                   <p className="text-2xl mb-3 font-medium">{work.title}</p>
-                </di>
+                </div>
                 <p className="mb-2">{work.description}</p>
                 <p>{work.timePeriod}</p>
               </div>
@@ -97,22 +101,39 @@ const Home = ({ latestPosts }) => {
           })}
           <p className="mb-5 font-bold mt-16" id="skills">SKILLS</p>
           <div className="flex flex-wrap mb-10">
-            {["ReactJS", "TypeScript", "NextJS", "GatsbyJS", "NodeJS", "RestAPI", "GraphQL", "MongoDB", "HTML", "CSS", "TailwindCSS", "Machine Learning", "GNU Octave", "Microsoft Power Platform"].map((skill, index) => {
+            {[
+              { name: "ReactJS", image: "react-icon.png" },
+              { name: "TypeScript", image: "typescript-icon.png" },
+              { name: "NextJS", image: "nextjs-icon.png" },
+              { name: "GatsbyJS", image: "gatsbyjs-icon.png" },
+              { name: "NodeJS", image: "nodejs-icon.png" },
+              { name: "RestAPI", image: "rest-api-icon.png" },
+              { name: "GraphQL", image: "graphql-icon.png" },
+              { name: "MongoDB", image: "mongodb-icon.png" },
+              { name: "HTML", image: "html-icon.png" },
+              { name: "CSS", image: "css-icon.png" },
+              { name: "TailwindCSS", image: "tailwindcss-icon.png" },
+              { name: "Machine Learning", image: "machine-learning-icon.png" },
+              { name: "GNU Octave", image: "gnu-octave-icon.png" },
+              { name: "Microsoft Power Platform", image: "ms-power-platform-icon.png" }
+            ].map((skill, index) => {
               return (
-                <span key={skill + index} className="py-2 px-3 bg-blue-600 rounded m-1">{skill}</span>
+                <span key={skill.name + index} className="py-2 px-3 bg-blue-600 rounded m-1 flex items-center">
+                  <img src={`/images/${skill.image}`} className="h-8 w-auto mr-3" />{skill.name}
+                </span>
               )
             })}
           </div>
           <p className="mb-5 font-bold mt-16" id="blog">BLOG</p>
           {latestPosts?.map((post, index) => {
             return (
-              <a href={post.url} target="_blank" rel="noopener" key={post.title + index} className="mb-5 bg-blue-500 p-3 flex flex-col justify-between min-h-40 hover:shadow-xl hover:text-white">
+              <a href={post.url} target="_blank" rel="noopener" key={post.title + index} className="mb-5 bg-blue-500 p-3 flex flex-col justify-between min-h-40 hover:shadow-xl hover:text-white ">
                 <div>
                   <p className="">{post.tags}</p>
                   <p className="text-2xl mb-3 font-medium">{post.title}</p>
                 </div>
                 <p className="mb-2">{post.description}</p>
-                <p>{post.created_at}</p>
+                <p>{dayJS(post.created_at).format('DD MMMM, YYYY')}</p>
               </a>
             )
           })}
@@ -122,7 +143,7 @@ const Home = ({ latestPosts }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data } = await axios.get('https://dev.to/api/articles?username=deltanboi');
 
   const latestPosts = data.splice(0, 3);
