@@ -97,7 +97,7 @@ const Home = ({ latestPosts }) => {
             {
               title: 'FurstLegal',
               description: 'This is a simple website for a law firm.',
-              link: 'https://furstlegalng.netlify.app/',
+              link: 'https://furstlegalng.vercel.app/',
               github: [{ title: 'N/A', link: '#' }],
               public: 'Closed Source',
               tools: 'NextJS',
