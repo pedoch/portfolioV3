@@ -19,7 +19,7 @@ const Home = ({ latestPosts }) => {
         />
       </Head>
       <div className="max-w-6xl w-full h-full tablet:max-w-xl mx-auto absolute">
-        <div className="w-1/4 fixed h-full flex flex-col justify-between tablet:w-full tablet:relative tablet:h-auto">
+        <div className="w-1/4 fixed h-full flex flex-col justify-between px-3 tablet:w-full tablet:relative tablet:h-auto">
           <div className="phone:mb-10">
             <p className="text-6xl font-medium m-0">Hi, my name is Ochuko Pedro.</p>
             <p className="text-base mt-10">
