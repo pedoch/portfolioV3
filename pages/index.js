@@ -93,7 +93,14 @@ const Home = ({ latestPosts }) => {
           <p className="mb-5 font-bold" id="projects">
             PROJECTS
           </p>
-          {[
+          {[{
+              title: 'StriTech',
+              description: 'Website for a software developement firm called StriTech.',
+              link: 'https://stritech.netlify.app/',
+              github: [{ title: 'N/A', link: '#' }],
+              public: 'Closed Source',
+              tools: 'NextJS',
+            },
             {
               title: 'FurstLegal',
               description: 'This is a simple website for a law firm.',
@@ -103,18 +110,10 @@ const Home = ({ latestPosts }) => {
               tools: 'NextJS',
             },
             {
-              title: 'StriTech',
-              description: 'Website for a software developement firm called StriTech.',
-              link: 'https://stritech.netlify.app/',
-              github: [{ title: 'N/A', link: '#' }],
-              public: 'Closed Source',
-              tools: 'NextJS',
-            },
-            {
               title: 'Neighbird Bot Web App (Desktop)',
               description:
                 'A web application for view the statistics and trending topics around the world for a bot made to bring communities together.',
-              link: 'https://furstlegalng.netlify.app/',
+              link: 'https://theneighbird-metrics.vercel.app/',
               github: [
                 {
                   title: 'Neighbird (Twitter Codechella 2020)',
