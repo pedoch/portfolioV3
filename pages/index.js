@@ -135,15 +135,6 @@ const Home = ({ latestPosts }) => {
               public: 'Open Source',
               tools: 'ReactJS, NodeJS',
             },
-            {
-              title: 'Church attendance app for contact tracing',
-              description:
-                'A simple web app that allows churches take attendance and allow to trace contacts if needed.',
-              link: 'https://cgmi-vi-attendance.vercel.app/',
-              github: [{ title: 'N/A', link: '#' }],
-              public: 'Closed Source',
-              tools: 'NextJS',
-            },
           ].map((project, index) => {
             return (
               <div
