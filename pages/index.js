@@ -93,7 +93,8 @@ const Home = ({ latestPosts }) => {
           <p className="mb-5 font-bold" id="projects">
             PROJECTS
           </p>
-          {[{
+          {[
+            {
               title: 'StriTech',
               description: 'Website for a software developement firm called StriTech.',
               link: 'https://stritech.netlify.app/',
@@ -173,6 +174,13 @@ const Home = ({ latestPosts }) => {
           </p>
           {[
             {
+              title: 'Front-End Engineer',
+              description:
+                'I am working as a front-end web engineer. Assisting with the development of their website and web application.',
+              company: 'Welkom-U',
+              timePeriod: 'March, 2021 - Present',
+            },
+            {
               title: 'IT Intern',
               description:
                 'I worked in the information management operations teams, under the business services department.',
@@ -180,7 +188,7 @@ const Home = ({ latestPosts }) => {
               timePeriod: 'Jan, 2020 - Jun, 2020',
             },
             {
-              title: 'Front End Developer Intern',
+              title: 'Front-End Developer Intern',
               description:
                 'I worked as a front end web developer. Assisted on enterprise level application',
               company: 'OpenDesk Consult',
